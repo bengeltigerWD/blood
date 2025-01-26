@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donate</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #loading-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #dc3545;
+            color: #fff;
+            font-size: 24px;
+            z-index: 9999;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: #dc3545;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header .logo img {
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+        .site-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffcccb;
+        }
+        main {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .search-box {
+            margin-bottom: 30px;
+        }
+        .search-box input {
+            padding: 12px;
+            width: 80%;
+            max-width: 350px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .search-box button {
+            padding: 12px 20px;
+            background: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .search-box button:hover {
+            background: #b52a3b;
+        }
+        .blood-group-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card.add-me, .card.committee {
+            background: #dc3545;
+            color: #fff;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Page -->
+    <div id="loading-page">
+        <img src="logo.png" alt="Blood Donate Logo">
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo-small.png" alt="Logo">
+        </div>
+        <div class="site-name">Blood Donate</div>
+        <nav>
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Add Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="search-box">
+            <input type="text" placeholder="Search Blood Group...">
+            <button>Search</button>
+        </div>
+        
+        <!-- Blood Group Cards -->
+        <div class="blood-group-cards">
+            <div class="card">A+</div>
+            <div class="card">A-</div>
+            <div class="card">B+</div>
+            <div class="card">B-</div>
+            <div class="card">O+</div>
+            <div class="card">O-</div>
+            <div class="card">AB+</div>
+            <div class="card">AB-</div>
+            <div class="card add-me">Add Me</div>
+            <div class="card committee">Committee Info</div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 <a href="https://alhidayawebdev.com">Al Hidaya Web Development Bangladesh</a>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simulate loading page
+        setTimeout(() => {
+            document.getElementById('loading-page').style.display = 'none';
+        }, 5000);
+    </script>
+</body>
+</html>
