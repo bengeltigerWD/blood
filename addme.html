@@ -134,7 +134,7 @@
     <main>
         <div class="form-container">
             <h2>Register as a Blood Donor</h2>
-            <form action="mailto:ajmirahemed75@gmail.com" method="POST" enctype="multipart/form-data">
+            <form id="donorForm">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required>
 
@@ -153,9 +153,9 @@
                 <label for="contact">Contact Number</label>
                 <input type="tel" id="contact" name="contact">
 
-                <button type="submit">Add Me</button>
+                <button type="button" onclick="sendEmail()">Add Me</button>
             </form>
-            <p>আপনার ফর্ম এ ইনফো আমরা পর্যবেক্ষণ করে ২৪-৪৮ ঘণ্টার মধ্যে আপনাকে আইডি নম্বর ও পাসওয়ার্ড ইমেইলে বা হোয়াটসঅ্যাপে প্রদান করবো।</p>
+            <p>আপনার ফর্ম এ ইনফো আমরা পর্যবেক্ষণ করে ২৪-৪৮ ঘণ্টার মধ্যে আপনাকে আইডি নম্বর ও পাসওয়ার্ড ইমেইল বা হোয়াটসঅ্যাপ প্রদান করবো।</p>
         </div>
     </main>
 
@@ -163,5 +163,21 @@
     <footer>
         <p>&copy; 2024 <a href="https://bengeltigerwd.github.io/AL-HIDAYA-WEB-STUDIO-BD/">Al Hidaya Web Studio Bangladesh</a>. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function sendEmail() {
+            const form = document.getElementById("donorForm");
+            const formData = new FormData(form);
+            const emailBody = `
+                Full Name: ${formData.get("name")}
+                Blood Group: ${formData.get("blood-group")}
+                Mobile Number: ${formData.get("mobile")}
+                WhatsApp Number: ${formData.get("whatsapp")}
+                Email Address: ${formData.get("email")}
+                Contact Number: ${formData.get("contact")}
+            `;
+            window.location.href = `mailto:ajmirahemed75@gmail.com?subject=New Blood Donor&body=${encodeURIComponent(emailBody)}`;
+        }
+    </script>
 </body>
 </html>
