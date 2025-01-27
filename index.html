@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
             background: #f8f9fa;
@@ -31,6 +31,18 @@
             color: #fff;
             font-size: 24px;
             z-index: 9999;
+            flex-direction: column;
+        }
+        #loading-page img {
+            height: 70px; /* Logo smaller */
+        }
+        #loading-page p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        #loading-page .ayat {
+            font-size: 16px;
+            margin-top: 10px;
         }
         header {
             text-align: center;
@@ -142,6 +154,9 @@
     <!-- Loading Page -->
     <div id="loading-page">
         <img src="image_2025-01-26_162258167.png" alt="Blood Donate Logo">
+        <p>Blood Donate</p>
+        <p class="ayat">وَمَنْ أَحْيَا هَا فَكَأَنَّمَا أَحْيَا النَّاسَ جَمِيعًا</p>
+        <p class="ayat">আল্লাহ বলেন, "আর যে ব্যক্তি এক জন মানুষকে বাঁচাবে, সে যেন সমস্ত মানবজাতিকে বাঁচালো।" (সুরা আল-মায়িদা, আয়াত: ৩২)</p>
     </div>
 
     <!-- Header Section -->
@@ -162,22 +177,22 @@
     <!-- Main Content -->
     <main>
         <div class="search-box">
-            <input type="text" placeholder="Search Blood Group...">
-            <button>Search</button>
+            <input type="text" placeholder="Search Blood Group..." id="searchInput">
+            <button onclick="searchBloodGroup()">Search</button>
         </div>
         
         <!-- Blood Group Cards -->
         <div class="blood-group-cards">
-            <div class="card">A+</div>
-            <div class="card">A-</div>
-            <div class="card">B+</div>
-            <div class="card">B-</div>
-            <div class="card">O+</div>
-            <div class="card">O-</div>
-            <div class="card">AB+</div>
-            <div class="card">AB-</div>
-            <div class="card add-me">Add Me</div>
-            <div class="card committee">Committee Info</div>
+            <div class="card" onclick="location.href='A+.html'">A+</div>
+            <div class="card" onclick="location.href='A-.html'">A-</div>
+            <div class="card" onclick="location.href='B+.html'">B+</div>
+            <div class="card" onclick="location.href='B-.html'">B-</div>
+            <div class="card" onclick="location.href='O+.html'">O+</div>
+            <div class="card" onclick="location.href='O-.html'">O-</div>
+            <div class="card" onclick="location.href='AB+.html'">AB+</div>
+            <div class="card" onclick="location.href='AB-.html'">AB-</div>
+            <div class="card add-me" onclick="location.href='AddMe.html'">Add Me</div>
+            <div class="card committee" onclick="location.href='CommitteeInfo.html'">Committee Info</div>
         </div>
     </main>
 
@@ -191,6 +206,12 @@
         setTimeout(() => {
             document.getElementById('loading-page').style.display = 'none';
         }, 4000);
+
+        // Search functionality (simple alert for now)
+        function searchBloodGroup() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            alert("Searching for blood group: " + query);
+        }
     </script>
 </body>
 </html>
