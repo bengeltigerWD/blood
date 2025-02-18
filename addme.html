@@ -140,6 +140,8 @@
 
                 <label for="blood-group">Blood Group</label>
                 <input type="text" id="blood-group" name="blood-group" required>
+                <label for="Age">Age</label>
+                <input type="text" id="Age" name="Age" required>
 
                 <label for="mobile">Mobile Number</label>
                 <input type="tel" id="mobile" name="mobile" required>
@@ -180,6 +182,7 @@
             const emailBody = `
     Full Name: ${formData.get("name")}
     Blood Group: ${formData.get("blood-group")}
+    Age: ${formData.get("Age")}
     Mobile Number: ${formData.get("mobile")}
     WhatsApp Number: ${formData.get("whatsapp")}
     Email Address: ${formData.get("email")}
