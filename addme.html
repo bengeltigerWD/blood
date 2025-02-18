@@ -152,6 +152,15 @@
 
                 <label for="contact">Contact Number</label>
                 <input type="tel" id="contact" name="contact">
+                <label for="district">District (জেলা)</label>
+<input type="text" id="district" name="district" required>
+
+<label for="division">Division (বিভাগ)</label>
+<input type="text" id="division" name="division" required>
+
+<label for="address">Address (ঠিকানা)</label>
+<textarea id="address" name="address" required></textarea>
+
 
                 <button type="button" onclick="sendEmail()">Add Me</button>
             </form>
@@ -169,13 +178,17 @@
             const form = document.getElementById("donorForm");
             const formData = new FormData(form);
             const emailBody = `
-                Full Name: ${formData.get("name")}
-                Blood Group: ${formData.get("blood-group")}
-                Mobile Number: ${formData.get("mobile")}
-                WhatsApp Number: ${formData.get("whatsapp")}
-                Email Address: ${formData.get("email")}
-                Contact Number: ${formData.get("contact")}
-            `;
+    Full Name: ${formData.get("name")}
+    Blood Group: ${formData.get("blood-group")}
+    Mobile Number: ${formData.get("mobile")}
+    WhatsApp Number: ${formData.get("whatsapp")}
+    Email Address: ${formData.get("email")}
+    Contact Number: ${formData.get("contact")}
+    District: ${formData.get("district")}
+    Division: ${formData.get("division")}
+    Address: ${formData.get("address")}
+`;
+
             window.location.href = `mailto:ajmirahemed75@gmail.com?subject=New Blood Donor&body=${encodeURIComponent(emailBody)}`;
         }
     </script>
