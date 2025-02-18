@@ -44,7 +44,7 @@
             font-size: 16px;
             margin-top: 10px;
         }
-   header {
+  header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,7 +70,8 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 15px;
+    gap: 10px;  /* মেনুগুলোর মাঝে ফাঁকা রাখা */
+    flex-wrap: wrap;  /* মোবাইল ও ছোট স্ক্রিনে adjust হবে */
 }
 
 nav ul li {
@@ -92,7 +93,7 @@ nav ul li a:hover {
     color: #dc3545;
 }
 
-/* মোবাইল ভার্সনের জন্য */
+/* মোবাইল ভার্সনে পাশাপাশি রাখার জন্য */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -105,15 +106,14 @@ nav ul li a:hover {
     }
 
     nav ul {
-        flex-direction: column;
-        gap: 10px;
-        padding-top: 10px;
+        flex-wrap: nowrap; /* মেনুগুলো পাশাপাশি থাকবে */
+        justify-content: center; /* মাঝখানে থাকবে */
+        overflow-x: auto; /* যদি জায়গা না থাকে তাহলে স্ক্রল হবে */
+        white-space: nowrap; /* ব্রেক হবে না */
     }
 
-    nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 10px;
+    nav ul li {
+        display: inline-block; /* মেনুগুলো পাশাপাশি রাখার জন্য */
     }
 }
 
