@@ -32,16 +32,8 @@
             font-size: 24px;
             z-index: 9999;
         }
-       #loading-page img {
-            height: 70px; /* Logo smaller */
-        }
-        #loading-page p {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-        #loading-page .ayat {
-            font-size: 16px;
-            margin-top: 10px;
+        #loading-page img {
+            height: 70px;
         }
         header {
             text-align: center;
@@ -54,7 +46,7 @@
             height: 50px;
             display: block;
             margin: 0 auto;
-          }
+        }
         .site-name {
             font-size: 28px;
             font-weight: bold;
@@ -85,21 +77,6 @@
         main {
             text-align: center;
             padding: 50px 20px;
-        
-        }
-        .back-btn button {
-            background-color: #fff;
-            border: 2px solid #dc3545;
-            font-size: 16px;
-            padding: 10px 20px;
-            color: #dc3545;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        main {
-            text-align: center;
-            padding: 50px 20px;
         }
         .blood-group-name {
             font-size: 32px;
@@ -125,6 +102,15 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .location-select {
+            margin-bottom: 30px;
+        }
+        .location-select select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
         .person-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -139,7 +125,6 @@
             text-align: center;
             font-size: 18px;
             font-weight: bold;
-            cursor: pointer;
         }
         .active { color: green; }
         .deactive { color: red; }
@@ -157,81 +142,80 @@
         <img src="bloodlogo.png" alt="Blood Donate Logo">
     </div>
 
-  <header>
+    <header>
         <div class="logo">
-            <img src="image_2025-01-26_162258167.png" alt="Logo">
+            <img src="bloodlogo.png" alt="Logo">
         </div>
         <div class="site-name">Blood Donate</div>
         <nav>
             <ul>
-            
                 <li><a href="index.html">Home</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a href="addme.html">Add Me</a></li>
             </ul>
         </nav>
     </header>
 
-
     <main>
-        <div class="back-btn">
-            <button onclick="window.history.back()">Back</button>
-        </div>
-
         <div class="blood-group-name">A+ Blood Group</div>
+
+        <div class="location-select">
+            <label for="location">Select Location:</label>
+            <select id="location" onchange="filterByLocation()">
+                <option value="">--Select Location--</option>
+                <option value="Jhenaidah">Jhenaidah</option>
+                <option value="Jeshor">Jeshor</option>
+                <option value="Khulna">Khulna</option>
+            </select>
+        </div>
 
         <div class="search-box">
             <input type="text" id="search" placeholder="Search Name..." onkeyup="searchPerson()">
             <button onclick="searchPerson()">Search</button>
         </div>
-<div class="person-cards" id="person-list">
-<div class="card">
-    <a href="person1.html">
-        Person 1 <br> ID: 1001 <br>
-        <span class="deactive" id="status1">Deactive</span><br>
-        <button onclick="changeStatus(1)">Change Status</button>
-    </a>
-</div>
-<div class="card">
-    <a href="person1.html">
-        Person 2 <br> ID: 1002 <br>
-        <span class="deactive" id="status2">Deactive</span><br>
-        <button onclick="changeStatus(2)">Change Status</button>
-    </a>
-</div>
-<div class="card">
-    <a href="person1.html">
-        Person 3 <br> ID: 1003 <br>
-        <span class="deactive" id="status3">Deactive</span><br>
-        <button onclick="changeStatus(3)">Change Status</button>
-    </a>
-</div>
-<div class="card">
-    <a href="person1.html">
-        Person 4 <br> ID: 1004 <br>
-        <span class="deactive" id="status4">Deactive</span><br>
-        <button onclick="changeStatus(4)">Change Status</button>
-    </a>
-</div>
-<div class="card">
-    <a href="person1.html">
-        Person 5 <br> ID: 1005 <br>
-        <span class="deactive" id="status5">Deactive</span><br>
-        <button onclick="changeStatus(5)">Change Status</button>
-    </a>
-</div>
-</div>
+
+        <div class="person-cards" id="person-list">
+            <div class="card" data-location="Jhenaidah">
+                <a href="person1.html">
+                    Person 1 <br> ID: 1001 <br>
+                    <span class="deactive" id="status1">Deactive</span>
+                </a>
+            </div>
+            <div class="card" data-location="Jeshor">
+                <a href="person1.html">
+                    Person 2 <br> ID: 1002 <br>
+                    <span class="deactive" id="status2">Deactive</span>
+                </a>
+            </div>
+            <div class="card" data-location="Khulna">
+                <a href="person1.html">
+                    Person 3 <br> ID: 1003 <br>
+                    <span class="deactive" id="status3">Deactive</span>
+                </a>
+            </div>
+            <div class="card" data-location="Jhenaidah">
+                <a href="person1.html">
+                    Person 4 <br> ID: 1004 <br>
+                    <span class="deactive" id="status4">Deactive</span>
+                </a>
+            </div>
+            <div class="card" data-location="Jeshor">
+                <a href="person1.html">
+                    Person 5 <br> ID: 1005 <br>
+                    <span class="deactive" id="status5">Deactive</span>
+                </a>
+            </div>
+        </div>
     </main>
 
-<footer style="background-color: #333; color: #fff; padding: 20px 0; text-align: center; box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);">
-    <p style="font-size: 16px; margin: 0;">&copy; 2024 
-        <a href="https://bengeltigerwd.github.io/AL-HIDAYA-WEB-STUDIO-BD/" style="color: #dc3545; text-decoration: none; font-weight: bold;">
-            Al Hidaya Web Studio Bangladesh
-        </a>
-    </p>
-    <p style="font-size: 14px; margin-top: 10px;">All Rights Reserved</p>
-</footer>
-
+    <footer>
+        <p>&copy; 2024 
+            <a href="https://bengeltigerwd.github.io/AL-HIDAYA-WEB-STUDIO-BD/" style="color: #dc3545; text-decoration: none; font-weight: bold;">
+                Al Hidaya Web Studio Bangladesh
+            </a>
+        </p>
+        <p>All Rights Reserved</p>
+    </footer>
 
     <script>
         setTimeout(() => {
@@ -251,15 +235,19 @@
             });
         }
 
-       let correctPasswords = {
-            1: "pass1",
-            2: "pass2",
-            3: "pass3",
-            4: "pass4",
-            5: "pass5"
-        };
+        function filterByLocation() {
+            let selectedLocation = document.getElementById("location").value.toLowerCase();
+            let cards = document.querySelectorAll(".card");
+            cards.forEach(card => {
+                let location = card.getAttribute("data-location").toLowerCase();
+                if (selectedLocation === "" || location.includes(selectedLocation)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
 
-        // পেজ লোড হওয়ার পরে পূর্বের সংরক্ষিত স্ট্যাটাস দেখানো হবে
         window.onload = function() {
             for (let i = 1; i <= 5; i++) {
                 let savedStatus = localStorage.getItem("status" + i);
@@ -269,25 +257,7 @@
                 }
             }
         }
-
-        // স্ট্যাটাস পরিবর্তনের ফাংশন
-        function changeStatus(personId) {
-            let userPassword = prompt("Enter password to change status:");
-            if (userPassword === correctPasswords[personId]) {
-                let statusElement = document.getElementById("status" + personId);
-                if (statusElement.innerText === "Deactive") {
-                    statusElement.innerText = "Active";
-                    statusElement.className = "active";
-                } else {
-                    statusElement.innerText = "Deactive";
-                    statusElement.className = "deactive";
-                }
-                localStorage.setItem("status" + personId, statusElement.innerText);
-                alert("Status updated successfully!");
-            } else {
-                alert("Incorrect password! Status change failed.");
-            }
-        }
     </script>
+
 </body>
 </html>
