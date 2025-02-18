@@ -18,41 +18,79 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        header {
-            text-align: center;
-            padding: 20px;
-            background: #dc3545;
-            color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .site-name {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        nav {
-            margin-top: 15px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-        nav ul li a:hover {
-            color: #ffcccb;
-        }
+    header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #dc3545;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+header .logo img {
+    height: 50px; /* লোগোর সাইজ ঠিক রাখা */
+}
+
+.site-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;  /* মেনুগুলোর মাঝে ফাঁকা রাখা */
+    flex-wrap: wrap;  /* মোবাইল ও ছোট স্ক্রিনে adjust হবে */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: white;
+    color: #dc3545;
+}
+
+/* মোবাইল ভার্সনে পাশাপাশি রাখার জন্য */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .logo img {
+        height: 40px; /* মোবাইলের জন্য লোগো ছোট করা */
+    }
+
+    nav ul {
+        flex-wrap: nowrap; /* মেনুগুলো পাশাপাশি থাকবে */
+        justify-content: center; /* মাঝখানে থাকবে */
+        overflow-x: auto; /* যদি জায়গা না থাকে তাহলে স্ক্রল হবে */
+        white-space: nowrap; /* ব্রেক হবে না */
+    }
+
+    nav ul li {
+        display: inline-block; /* মেনুগুলো পাশাপাশি রাখার জন্য */
+    }
+}
+
         main {
             text-align: center;
             padding: 50px 20px;
