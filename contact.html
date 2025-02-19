@@ -45,8 +45,12 @@ nav ul {
     margin: 0;
     display: flex;
     gap: 10px;  /* মেনুগুলোর মাঝে ফাঁকা রাখা */
-    flex-wrap: wrap;  /* মোবাইল ও ছোট স্ক্রিনে adjust হবে */
+    flex-wrap: nowrap;  /* মোবাইলেও পাশাপাশি থাকবে */
+    justify-content: center; /* মাঝখানে রাখবে */
+    overflow-x: auto; /* জায়গা না হলে স্ক্রল হবে */
+    white-space: nowrap; /* ব্রেক হবে না */
 }
+
 
 nav ul li {
     margin: 0;
